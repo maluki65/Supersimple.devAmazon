@@ -1,8 +1,5 @@
 # Supersimple.devAmazon
 
-A public repository by [maluki65](https://github.com/maluki65)  
-[GitHub Repository Link](https://github.com/maluki65/Supersimple.devAmazon)
-
 ## Overview
 
 Supersimple.devAmazon is a web development project primarily using JavaScript, CSS, and HTML. The repository appears designed for educational or demonstrative purposes, reflecting a simple yet practical approach to building an Amazon-like frontend or feature showcase.
