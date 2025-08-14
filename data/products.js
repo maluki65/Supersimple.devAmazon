@@ -35,6 +35,10 @@ class Product {
   getPrice(){
     return `$${formatCurrency(this.priceCents)}`;
   }
+
+  extraInfoHTML(){
+    return '';
+  }
 }
 
 class Clothing extends Product {
@@ -45,27 +49,40 @@ class Clothing extends Product {
     this.sizeChartLink = productDetails.sizeChartLink;
   }
 
+  extraInfoHTML(){
+    return `
+      <a href ='${this.sizeChartLink}' target='_blank' >Size chart</a>
+    `;
+  }
 }
-const Tshirt = new Clothing({
-  id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
-  image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-  name: "Adults Plain Cotton T-Shirt - 2 Pack",
-  rating: {
-    stars: 4.5,
-    count: 56
-  },
-  priceCents: 799,
-  keywords: [
-    "tshirts",
-    "apparel",
-    "mens"
-  ],
-  type: "clothing",
-  sizeChartLink: "images/clothing-size-chart.png"
-},);
 
-console.log(Tshirt);
-console.log(Tshirt.getPrice());
+/*const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+
+
+console.log(this);
+
+const object2 = {
+  a: 2,
+  b: this.a
+}
+
+
+function logThis(){
+  console.log(this);
+}
+logThis();
+logThis.call('hello');
+
+this
+const object3 = {
+  method: () => {
+    console.log(this);
+  }
+}
+object3.method();
+*/
 
 export const products = [
   {
@@ -727,5 +744,8 @@ export const products = [
     ]
   }
 ].map((productDetails) => {
+  if(productDetails.type === 'clothing'){
+    return new Clothing(productDetails);
+  }
   return new Product(productDetails);
 });
